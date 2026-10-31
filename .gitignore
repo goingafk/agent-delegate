@@ -1,0 +1,10 @@
+runs/
+state/
+worktrees/
+reviews/
+__pycache__/
+ledger.jsonl
+task_costs.jsonl
+*.bak
+probe/
+.DS_Store

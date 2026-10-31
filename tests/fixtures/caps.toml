@@ -1,0 +1,52 @@
+# Stable test caps: quota fixtures deliberately use lower limits than the deployment.
+[routing]
+order = ["copilot-free", "codex", "claude-opus", "claude-sonnet", "copilot-premium"]
+
+[codex]
+allowed_models = ["gpt-6.1-sol", "gpt-6-astra", "gpt-6-sol"]
+default_model = "gpt-6.1-sol"
+heavy_model = "gpt-6-astra"
+five_hour_max_pct = 90
+weekly_max_pct = 90
+
+[claude]
+allowed_models = ["claude-sonnet-5-5", "claude-opus-5-5"]
+high_effort_budget_usd = 15.0
+setting_sources = ""
+default_budget_usd = 8.0
+opus_requires_reason = false
+
+[claude.sonnet]
+five_hour_max_pct = 90
+weekly_max_pct = 90
+daily_calls = 15
+
+[claude.opus]
+five_hour_max_pct = 80
+weekly_max_pct = 80
+daily_calls = 5
+weekly_calls = 15
+
+[copilot]
+allowed_models = ["gpt-5-mini", "claude-haiku-5.5", "gemini-3.8-flash", "gpt-6-luna", "grok-4.7", "claude-sonnet-5.5"]
+free_models = ["gpt-5-mini"]
+premium_weekly_max = 25
+
+[qwen]
+allowed_models = ["qwen3.8:27b", "gemma4:26b"]
+
+[jobs]
+max_running = 4
+
+[jobs.per_agent]
+codex = 2
+claude = 2
+copilot = 2
+qwen = 1
+
+[effort]
+"claude-opus-5-5" = { low = "medium", high = "high" }
+"claude-sonnet-5-5" = { low = "medium", high = "medium" }
+"gpt-6.1-sol" = { low = "medium", high = "high" }
+"gpt-6-astra" = { low = "medium", high = "high" }
+"gpt-6-sol" = { low = "medium", high = "high" }
